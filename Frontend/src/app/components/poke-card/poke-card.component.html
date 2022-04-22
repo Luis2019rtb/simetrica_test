@@ -1,0 +1,13 @@
+<div class="card" style="width: 10rem;">
+  <img class="card-img-top" src={{pokemon.sprite}} alt="Card image cap">
+  <div class="card-body text-center container">
+    <p *ngIf="!editable; else editName" class="card-text ">{{pokemon.name}}</p>
+    <ng-template #editName>
+      <input (input)="editFavorite($event)" type="text" value={{pokemon.alias}} class="form-control">
+    </ng-template>
+    <button *ngIf="!editable; else erasable" (click)="addToFavorites()" type="button" class="btn btn-sm btn-warning">Add to favorites</button>
+    <ng-template #erasable>
+      <button (click)="removeFromFavorites()" type="button" class="btn btn-sm btn-danger">Remove</button>
+    </ng-template>
+  </div>
+</div>

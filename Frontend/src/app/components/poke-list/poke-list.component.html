@@ -1,0 +1,7 @@
+<div class="container ">
+  <div class="row pt-3">
+    <div class="col mt-4" *ngFor="let currentPokemon of pokemons" >
+      <poke-card (wasEdited)="refresh($event)" [pokemon]="currentPokemon" [editable]="editable"></poke-card>
+    </div>
+  </div>
+</div>
